@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/binary_tree.hpp
+memory
+-
+initializer_list
+-
+
+D:/Projects-linux/algorithm/src/binary_tree_impl.cpp
+binary_tree.hpp
+D:/Projects-linux/algorithm/src/binary_tree.hpp
+memory
+-
+queue
+-
+memory
+-
+initializer_list
+-
+stack
+-
+iostream
+-
+

@@ -1,0 +1,4 @@
+D:\jetbrains_tools\apps\CLion\ch-0\201.6668.126\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" D:\Projects-linux\algorithm
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Projects-linux/algorithm/build

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/base.hpp
+iostream
+-
+vector
+-
+list
+-
+algorithm
+-
+
+D:/Projects-linux/algorithm/last_k_th.cpp
+base.hpp
+D:/Projects-linux/algorithm/base.hpp
+
