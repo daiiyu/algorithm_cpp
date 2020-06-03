@@ -15,6 +15,7 @@ target_include_directories(binary_tree_library
 )
 
 set(CMAKE_CXX_STANDARD 11)
+add_executable(grammer_test grammer_test.cpp)
 add_executable(2d_find 001_2d_find.cpp)
 add_executable(stringreplace stringreplace.cpp)
 add_executable(link_node link_node.cpp)
@@ -26,8 +27,9 @@ add_executable(pow pow.cpp)
 add_executable(print1toN print1_to_n.cpp)
 add_executable(odd_1st odd_1st_even_2nd.cpp)
 add_executable(last_k last_k_th.cpp)
-add_executable(valid_stack_sequence valid_stack_sequence.cpp)
-
+add_executable(31valid_stack_sequence valid_stack_sequence.cpp)
+add_executable(33valid_posorder_sequence 33_valid_posorder_sequence.cpp)
+add_executable(34path-sum-ii 34path-sum-ii.cpp)
 target_link_libraries(binary_tree_exe 
     PRIVATE
     binary_tree_library    
@@ -36,3 +38,5 @@ target_link_libraries(binary_tree_exe
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+string(REPLACE "-O2" "-O0" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+string(REPLACE "-O2" "-O0" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
