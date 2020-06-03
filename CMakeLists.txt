@@ -30,10 +30,16 @@ add_executable(last_k last_k_th.cpp)
 add_executable(31valid_stack_sequence valid_stack_sequence.cpp)
 add_executable(33valid_posorder_sequence 33_valid_posorder_sequence.cpp)
 add_executable(34path-sum-ii 34path-sum-ii.cpp)
-target_link_libraries(binary_tree_exe 
-    PRIVATE
-    binary_tree_library    
-)
+add_executable(numWays numWays.cpp)
+add_executable(maximum-subarray maximum-subarray.cpp)
+add_executable(unzipString unzipString.cpp)
+add_executable(thread_test thread_test.cpp)
+add_executable(uglynumber uglynumber.cpp)
+
+target_link_libraries(binary_tree_exe
+        PRIVATE
+        binary_tree_library
+        )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
