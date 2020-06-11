@@ -3,7 +3,7 @@ project(algorithm VERSION 0.1.0)
 
 include(CTest)
 enable_testing()
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE "Debug")
 include_directories("include")
 
@@ -35,6 +35,11 @@ add_executable(maximum-subarray maximum-subarray.cpp)
 add_executable(unzipString unzipString.cpp)
 add_executable(thread_test thread_test.cpp)
 add_executable(uglynumber uglynumber.cpp)
+add_executable(FirtNotRepeatingChar FirtNotRepeatingChar.cpp)
+add_executable(find-first-and-last-position-of-element-in-sorted-array find-first-and-last-position-of-element-in-sorted-array.cpp)
+add_executable(0ton-1 0ton-1.cpp)
+add_executable(sum_of_two_num_to_s sum_of_two_num_to_s.cpp)
+add_executable(reverse-words-in-a-string reverse-words-in-a-string.cpp)
 
 target_link_libraries(binary_tree_exe
         PRIVATE
