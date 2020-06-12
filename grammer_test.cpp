@@ -3,6 +3,29 @@
 //
 
 #include "base.hpp"
+
+template<typename T>
+T sum(T t)
+{
+    return t;
+}
+template<typename T, typename ... Types>
+T sum (T first, Types ... rest)
+{
+    return first + sum(rest...);
+}
+
+template<int  n>
+struct Sum
+{
+        enum{N=Sum<n -1>::N + n};
+};
+template<>
+struct Sum<1>
+{
+    enum {N=1};
+};
+
 using namespace  placeholders;
 void print(int a, int b, int c)
 {
@@ -77,7 +100,10 @@ void test3(){
 }
 int main()
 {
+    atoi()
     test();
     test2();
     test3();
+
+    cout<<Sum<3>::N<<endl;
 }

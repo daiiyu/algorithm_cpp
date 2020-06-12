@@ -40,7 +40,7 @@ add_executable(find-first-and-last-position-of-element-in-sorted-array find-firs
 add_executable(0ton-1 0ton-1.cpp)
 add_executable(sum_of_two_num_to_s sum_of_two_num_to_s.cpp)
 add_executable(reverse-words-in-a-string reverse-words-in-a-string.cpp)
-
+add_executable(knapsack_problem_0-1_problem knapsack_problem_0-1_problem.cpp)
 target_link_libraries(binary_tree_exe
         PRIVATE
         binary_tree_library
