@@ -12,21 +12,23 @@
 #include <chrono>
 using namespace std;
 
-class Time
+#ifndef BASE_TOOLS
+#define BASE_TOOLS
+class TimerCounter
 {
 public:
-    Time():start_(chrono::steady_clock::now()){}
+    TimerCounter():start_(chrono::steady_clock::now()){}
 
-    void start()
+    inline void start()
     {
         start_ = std::chrono::steady_clock::now();
     }
 
-    void end()
+    inline void end()
     {
         auto end = std::chrono::steady_clock::now();
         std::chrono::duration<double, std::micro> elapsed = end - start_; // std::micro 表示以微秒为时间单位
-        std::cout<< "time: "  << elapsed.count() << "us" << std::endl;
+        std::cout<< "TimerCounter: "  << elapsed.count() << "us" << std::endl;
     }
 private:
     decltype(chrono::steady_clock::now()) start_;
@@ -39,3 +41,4 @@ void printSequence(Sequence&& con){
     }
     cout<<endl;
 }
+#endif

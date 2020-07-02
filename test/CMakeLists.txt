@@ -1,9 +1,10 @@
 include_directories(googletest/googletest/include)
 include_directories(googletest/googlemock/include)
-
+include_directories(${CMAKE_SOURCE_DIR}/src)
 set(unit_name unit_test)
 add_executable(${unit_name}
-        maxValue.cpp
+        unit_test.cpp
+
         )
 
 target_link_libraries(${unit_name}

@@ -13,8 +13,8 @@ mkdir build
 cd build
 # 如果没有ninja命令
 #sudo apt install ninja-build
-cmake -GNinja ..  
-ninja
+cmake ..  
+make -j
 
 # 测试, 保持在build目录下
 ctest -V
