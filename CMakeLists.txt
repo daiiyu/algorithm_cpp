@@ -14,39 +14,65 @@ target_include_directories(binary_tree_library
     ${PROJECT_SOURCE_DIR}/include    
 )
 
+#[[
+############## gtest start ###########
+# Enable ExternalProject CMake module
+include(ExternalProject)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+# Download and unpack googletest at configure time
+configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+        RESULT_VARIABLE result
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+if(result)
+    message(FATAL_ERROR "CMake step for googletest failed: ${result}")
+endif()
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+        RESULT_VARIABLE result
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
+if(result)
+    message(FATAL_ERROR "Build step for googletest failed: ${result}")
+endif()
+
+# Prevent overriding the parent project's compiler/linker
+# settings on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
+# Add googletest directly to our build. This defines
+# the gtest and gtest_main targets.
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
+        ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
+        EXCLUDE_FROM_ALL)# The gtest/gtest_main targets carry header search path
+# dependencies automatically when using CMake 2.8.11 or
+# later. Otherwise we have to add them here ourselves.
+if (CMAKE_VERSION VERSION_LESS 2.8.11)
+    include_directories("${gtest_SOURCE_DIR}/include")
+endif()
+
+# Now simply link against gtest or gtest_main as needed. Eg
+#add_executable(example example.cpp)
+#target_link_libraries(example gtest_main)
+#add_test(NAME example_test COMMAND example)
+
+############## gtest end ###########
+]]
+
+
 set(CMAKE_CXX_STANDARD 11)
-add_executable(grammer_test grammer_test.cpp)
-add_executable(2d_find 001_2d_find.cpp)
-add_executable(stringreplace stringreplace.cpp)
-add_executable(link_node link_node.cpp)
-add_executable(shared shared_ptr_test.cpp)
-add_executable(introsort introsort.cpp)
-add_executable(fibonacci fibonacci.cpp)
-add_executable(binary_tree_exe binary_tree.cpp)
-add_executable(pow pow.cpp)
-add_executable(print1toN print1_to_n.cpp)
-add_executable(odd_1st odd_1st_even_2nd.cpp)
-add_executable(last_k last_k_th.cpp)
-add_executable(31valid_stack_sequence valid_stack_sequence.cpp)
-add_executable(33valid_posorder_sequence 33_valid_posorder_sequence.cpp)
-add_executable(34path-sum-ii 34path-sum-ii.cpp)
-add_executable(numWays numWays.cpp)
-add_executable(maximum-subarray maximum-subarray.cpp)
-add_executable(unzipString unzipString.cpp)
-add_executable(thread_test thread_test.cpp)
-add_executable(uglynumber uglynumber.cpp)
-add_executable(FirtNotRepeatingChar FirtNotRepeatingChar.cpp)
-add_executable(find-first-and-last-position-of-element-in-sorted-array find-first-and-last-position-of-element-in-sorted-array.cpp)
-add_executable(0ton-1 0ton-1.cpp)
-add_executable(sum_of_two_num_to_s sum_of_two_num_to_s.cpp)
-add_executable(reverse-words-in-a-string reverse-words-in-a-string.cpp)
-add_executable(knapsack_problem_0-1_problem knapsack_problem_0-1_problem.cpp)
-add_executable(coinChange coinChange.cpp)
-add_executable(coinChange_better coinChange_better.cpp)
-target_link_libraries(binary_tree_exe
-        PRIVATE
-        binary_tree_library
-        )
+include(GNUInstallDirs)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+
+include_directories(src)
+# compile exe
+add_subdirectory(googletest)
+#add_subdirectory(src)
+add_subdirectory(test)
+
+enable_testing()
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

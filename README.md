@@ -1,14 +1,21 @@
 # algorithm_cpp
 
 #### 介绍
-记录算法题的阶梯步骤。
+记录算法题的步骤。
+同时使用了[google test](https://github.com/google/googletest.git) 进行测试。
+使用的是leetcode的接口命令。
 
+#### 使用方法
+命令行:
 
-#### 码云特技
+```shell script
+mkdir build
+cd build
+# 如果没有ninja命令
+#sudo apt install ninja-build
+cmake -GNinja ..  
+ninja
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+# 测试, 保持在build目录下
+ctest -V
+```
