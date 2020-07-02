@@ -32,4 +32,10 @@ private:
     decltype(chrono::steady_clock::now()) start_;
 };
 
-
+template<class Sequence>
+void printSequence(Sequence&& con){
+    for(auto &e: con){
+        cout<<e<<" ";
+    }
+    cout<<endl;
+}
