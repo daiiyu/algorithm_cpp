@@ -6,7 +6,7 @@
 #include "gtest/gtest.h"
 #include "maxValue.hpp"
 #include "ugly_number.h"
-
+#include "NQueue.h"
 TEST(Solution, maxValue)
 {
     vector<vector<int>> testCase1{{1,3,1},{1,5,1},{4,2,1}};
@@ -24,4 +24,10 @@ TEST(SolutionUglyNumber, uglyNumber)
     EXPECT_EQ(1, solutionUglyNumber.nthUglyNumber(1));
     EXPECT_EQ(2, solutionUglyNumber.nthUglyNumber(2));
     EXPECT_EQ(12, solutionUglyNumber.nthUglyNumber(10));
+}
+
+TEST(SolutionNQueue, simple_check)
+{
+    SolutionNQueue solutionNQueue;
+    solutionNQueue.solveNQueens(8);
 }
