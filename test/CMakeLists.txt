@@ -4,7 +4,6 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 set(unit_name unit_test)
 add_executable(${unit_name}
         unit_test.cpp
-
         )
 
 target_link_libraries(${unit_name}

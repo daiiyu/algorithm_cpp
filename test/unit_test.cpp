@@ -7,6 +7,7 @@
 #include "maxValue.hpp"
 #include "ugly_number.h"
 #include "NQueue.h"
+#include "NqueueSimple.h"
 TEST(Solution, maxValue)
 {
     vector<vector<int>> testCase1{{1,3,1},{1,5,1},{4,2,1}};
@@ -30,4 +31,10 @@ TEST(SolutionNQueue, simple_check)
 {
     SolutionNQueue solutionNQueue;
     solutionNQueue.solveNQueens(8);
+}
+
+TEST(NQueueSimple, simple_check)
+{
+    NQueenSimple nQueenSimple;
+    nQueenSimple.solutionToNQueenSimple(4, 4);
 }

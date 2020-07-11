@@ -5,8 +5,6 @@
 #ifndef DATASTRUCTURE_NQUEUE_H
 #define DATASTRUCTURE_NQUEUE_H
 #include <vector>
-;
-
 class SolutionNQueue {
 public:
     std::vector<std::vector<std::string>> solveNQueens(int n) {
@@ -76,5 +74,52 @@ private:
         }
         cout<<endl;
     }
+};
+
+class SolutionNQueueBetter
+{
+public:
+    std::vector<std::vector<std::string>> solveNQueens(int n) {
+        init(n);
+        backtrace(0);
+        return res;
+    }
+private:
+    std::vector<bool> colColl; //column collision
+    std::vector<bool> mainColl; //
+    std::vector<bool> secondaryColl;
+    int n;
+    void init(int size)
+    {
+        n = size;
+        colColl.resize(n, false);
+        mainColl.resize(n + n -1, false); //规律是： 行数 + 列数 - 1
+        secondaryColl.resize(n+n -1, false);
+    }
+
+    void backtrace(int row)
+    {
+
+    }
+    int check(int row, int col)
+    {
+        if(colColl[col] || mainColl[row - col + n -1] ||secondaryColl[row + col] )
+            return false;
+
+        return true;
+    }
+    int addQueue(int row, int col)
+    {
+
+    }
+    int removeQueue(int row, int col)
+    {
+
+    }
+
+private:
+    std::vector<std::vector<std::string>> res;
+    std::vector<std::string> board;
+
 };
 #endif //DATASTRUCTURE_NQUEUE_H
