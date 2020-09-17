@@ -1,3 +1,4 @@
+include_directories(${PROJECT_SOURCE_DIR}/include)
 add_executable(grammer_test grammer_test.cpp)
 add_executable(2d_find 001_2d_find.cpp)
 add_executable(stringreplace stringreplace.cpp)
@@ -33,7 +34,7 @@ add_executable(spiralOrder spiralOrder.cpp)
 add_executable(poker_is_straight poker_is_straight.cpp)
 add_executable(dice_twoSum dice_twoSum.cpp)
 add_executable(findContinuousSequence findContinuousSequence.cpp)
-add_executable(maxValue maxValue.hpp)
+#add_executable(maxValue maxValue.hpp)
 target_link_libraries(binary_tree_exe
         PRIVATE
         binary_tree_library

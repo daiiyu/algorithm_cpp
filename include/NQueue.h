@@ -5,6 +5,10 @@
 #ifndef DATASTRUCTURE_NQUEUE_H
 #define DATASTRUCTURE_NQUEUE_H
 #include <vector>
+#include <string>
+#include <iostream>
+using std::cout;
+using std::endl;
 class SolutionNQueue {
 public:
     std::vector<std::vector<std::string>> solveNQueens(int n) {
@@ -19,6 +23,7 @@ private:
     int counter;
     void backtrace(int row)
     {
+        //找到的一个结果，就打印
         if(row >= size ){
             ++counter;
             res.push_back(board);
@@ -40,7 +45,7 @@ private:
     }
     void init(int n)
     {
-        board.resize(n, string(n,'+'));
+        board.resize(n, std::string(n,'+'));
         this->size = n;
         counter = 0;
     }

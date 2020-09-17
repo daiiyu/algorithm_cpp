@@ -69,7 +69,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
 include_directories(src)
 # compile exe
 add_subdirectory(googletest)
-#add_subdirectory(src)
+add_subdirectory(src)
 add_subdirectory(test)
 
 enable_testing()

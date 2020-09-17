@@ -8,6 +8,7 @@
 #include "ugly_number.h"
 #include "NQueue.h"
 #include "NqueueSimple.h"
+
 TEST(Solution, maxValue)
 {
     vector<vector<int>> testCase1{{1,3,1},{1,5,1},{4,2,1}};
